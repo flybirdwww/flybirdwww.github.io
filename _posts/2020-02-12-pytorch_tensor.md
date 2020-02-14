@@ -26,7 +26,7 @@ print(torchvision.__version__)
 
     1.3.0
     0.4.1
-    
+
 
 ## Tensors 张量 
 
@@ -107,7 +107,8 @@ t1.size()
 ## 改变shape
 
 1. `view()`
-与np.array的 `.reshape()` 功能相同，tensor 采用 `.view()` 进行。且不同的view指向同一物理存储，所以改变任一个，会影响另外的变量。所果要复制创建指向不同物理存府的变量使用`.clone()`
+
+  与np.array的 `.reshape()` 功能相同，tensor 采用 `.view()` 进行。且不同的view指向同一物理存储，所以改变任一个，会影响另外的变量。所果要复制创建指向不同物理存府的变量使用`.clone()`
 
 
 ```python
@@ -140,7 +141,7 @@ print(t.reshape([1,12]).squeeze().unsqueeze(dim=0).shape)
     torch.Size([12])
     tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.]])
     torch.Size([1, 12])
-    
+
 
 3. 拼接张量 Concatenating tensors
 组合两个张量使用`cat()`
@@ -164,7 +165,7 @@ print(torch.cat((t1, t2), dim=1).shape)
 
     torch.Size([4, 2])
     torch.Size([2, 4])
-    
+
 
 ### numpy.array的拼接操作
 
@@ -179,7 +180,7 @@ axis: 沿指定的轴进行拼接，默认0，即第一个轴
 """
 
 2. np.stack(arrays, axis=0, out=None)
-
+"""
 沿着指定的axis对arrays(每个array的shape必须一样)进行拼接，返回值的维度比原arrays的维度高1
 axis：默认为0，即第一个轴
 """
@@ -206,7 +207,7 @@ axis：默认为0，即第一个轴
 ```
 对于两个shape一样的二维array来说:
 
-1. 增加行（对行进行拼接）的方法有：
++ 增加行（对行进行拼接）的方法有：
 
     + np.concatenate((ar1, ar2),axis=0)
     + np.append(ar1, ar2, axis=0)
@@ -214,7 +215,7 @@ axis：默认为0，即第一个轴
     + np.row_stack((ar1,ar2))
     + np.r_[ar1,ar2] # 垂直拼接，沿着列的方向，对行进行拼接
 
-2. 增加列（对列进行拼接）的方法有：
++ 增加列（对列进行拼接）的方法有：
 
     + np.concatenate((ar1, ar2),axis=1)
     + np.append(ar1, ar2, axis=1)
@@ -223,7 +224,7 @@ axis：默认为0，即第一个轴
     + np.c_[ar1,ar2] #水平拼接，沿着行的方向，对列进行拼接
 
 
-## 单值tensor可以采用`.item()` 得到 pyhon number的值
+## 单值tensor采用`.item()` 得到 pyhon number的值
 
 
 ```python
@@ -254,4 +255,4 @@ if torch.cuda.is_available():
             [8, 9]], device='cuda:0')
     tensor([[6., 7.],
             [8., 9.]], dtype=torch.float64)
-    
+
