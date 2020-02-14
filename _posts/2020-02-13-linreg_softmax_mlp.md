@@ -147,7 +147,11 @@ net = nn.Sequential(
 
 + **ReLU（rectified linear unit）**函数提供了一个很简单的非线性变换。给定元素$x$，该函数定义为
 
-  $$\text{ReLU}(x) = \max(x, 0).$$  其导数为： 当输入为负数时，ReLU函数的导数为0；当输入为正数时，ReLU函数的导数为1。
+$$
+\text{ReLU}(x) = \max(x, 0).
+$$
+
+其导数为： 当输入为负数时，ReLU函数的导数为0；当输入为正数时，ReLU函数的导数为1。
 
   ![](/images/linreg_softmax_mlp/relu.png)
 
