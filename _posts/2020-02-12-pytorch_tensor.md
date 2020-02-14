@@ -171,38 +171,39 @@ print(torch.cat((t1, t2), dim=1).shape)
 ar1 = np.array([[1,2,3], [4,5,6]])
 ar2 = np.array([[7,8,9], [11,12,13]])
 
-# np.concatenate(a_tuple, axis=0, out=None)
+1. np.concatenate(a_tuple, axis=0, out=None)
 """
 参数说明：
 a_tuple:对需要合并的数组用元组的形式给出
 axis: 沿指定的轴进行拼接，默认0，即第一个轴
 """
 
-# np.stack(arrays, axis=0, out=None)
+2. np.stack(arrays, axis=0, out=None)
 
 沿着指定的axis对arrays(每个array的shape必须一样)进行拼接，返回值的维度比原arrays的维度高1
 axis：默认为0，即第一个轴
 """
 
-# np.hstack(),np.vstack(),np.dstack()
->>>np.hstack((ar1,ar2))  # 水平拼接，沿着行的方向，对列进行拼接
-array([[ 1, 2, 3, 7, 8, 9],
-    [ 4, 5, 6, 11, 12, 13]])
- 
->>>np.vstack((ar1,ar2))  # 垂直拼接，沿着列的方向，对行进行拼接
-array([[ 1, 2, 3],
-    [ 4, 5, 6],
-    [ 7, 8, 9],
-    [11, 12, 13]])
+3. np.hstack(),np.vstack(),np.dstack()
+```
+    >>>np.hstack((ar1,ar2))  # 水平拼接，沿着行的方向，对列进行拼接
+    array([[ 1, 2, 3, 7, 8, 9],
+        [ 4, 5, 6, 11, 12, 13]])
      
->>>np.dstack((ar1,ar2))  # 对于2维数组来说，沿着第三轴（深度方向）进行拼接, 效果相当于stack(axis=-1)
-array([[[ 1, 7],
-    [ 2, 8],
-    [ 3, 9]],
-    [[ 4, 11],
-    [ 5, 12],
-    [ 6, 13]]])
-
+    >>>np.vstack((ar1,ar2))  # 垂直拼接，沿着列的方向，对行进行拼接
+    array([[ 1, 2, 3],
+        [ 4, 5, 6],
+        [ 7, 8, 9],
+        [11, 12, 13]])
+         
+    >>>np.dstack((ar1,ar2))  # 对于2维数组来说，沿着第三轴（深度方向）进行拼接, 效果相当于stack(axis=-1)
+    array([[[ 1, 7],
+        [ 2, 8],
+        [ 3, 9]],
+        [[ 4, 11],
+        [ 5, 12],
+        [ 6, 13]]])
+```
 对于两个shape一样的二维array来说:
 
 1. 增加行（对行进行拼接）的方法有：
