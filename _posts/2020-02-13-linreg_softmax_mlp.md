@@ -124,16 +124,23 @@ loss = torch.nn.CrossEntropyLoss() #包含`torch.nn.Softmax(net)`在内
 ## mlp多层感知机
 单个或多个隐层的全连接神经网络。
 
-```pyton
+```python
+class FlattenLayer(torch.nn.Module):
+    def __init__(self):
+        super(FlattenLayer, self).__init__()
+    def forward(self, x): # x shape: (batch, *, *, ...)
+        return x.view(x.shape[0], -1)
+
+
 net = nn.Sequential(
-        d2l.FlattenLayer(),
+        FlattenLayer(),
         nn.Linear(num_inputs, num_hiddens), 
         nn.ReLU(),                          
         nn.Linear(num_hiddens, num_outputs), 
         )
   ##重复以下多次，可以得到多个隐层的mlp.         
-		    nn.Linear(num_inputs, num_hiddens), 
-        nn.ReLU(),
+        nn.Linear(num_inputs, num_hiddens), 
+        nn.ReLU()
 ```
 
 ### 隐层的激活函数可以有多种选择：
