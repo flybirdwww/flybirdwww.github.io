@@ -28,7 +28,7 @@ print(torchvision.__version__)
     0.4.1
     
 
-### Tensors 张量 
+## Tensors 张量 
 
 Tensors 与 NumPy’s ndarrays 类似, 另外，可以用于 GPU上 加速计算。 Torch.tensor 与 numpy.array可以相互转换
 
@@ -42,7 +42,7 @@ n1=t.numpy()
 
 ```
 
-#### 操作
+## 操作
 同一操作可以有不同的实现方式。 更多操作可参考[PyTorch-Basic-operations](https://jhui.github.io/2018/02/09/PyTorch-Basic-operations/)
 
 
@@ -75,7 +75,7 @@ a.add_(b)
 
 
 
-#### 元素访问 
+## 元素访问 
 可以采用与np.array相同的方式进行元素的访问，index/slice
 
 
@@ -86,7 +86,7 @@ t5=t2[-1,0:2:1]
 
 ```
 
-#### shape 属性
+## shape 属性
 与np.array的类似的 tensor的 shape属性
 
 
@@ -104,7 +104,7 @@ t1.size()
 
 
 
-#### 改变shape
+## 改变shape
 
 1. `view()`
 与np.array的 `.reshape()` 功能相同，tensor 采用 `.view()` 进行。且不同的view指向同一物理存储，所以改变任一个，会影响另外的变量。所果要复制创建指向不同物理存府的变量使用`.clone()`
@@ -166,8 +166,8 @@ print(torch.cat((t1, t2), dim=1).shape)
     torch.Size([2, 4])
     
 
-##### numpy.array的拼接操作
-```
+### numpy.array的拼接操作
+
 ar1 = np.array([[1,2,3], [4,5,6]])
 ar2 = np.array([[7,8,9], [11,12,13]])
 
@@ -203,7 +203,6 @@ array([[[ 1, 7],
     [ 5, 12],
     [ 6, 13]]])
 
-```
 对于两个shape一样的二维array来说:
 
 1. 增加行（对行进行拼接）的方法有：
@@ -223,14 +222,14 @@ array([[[ 1, 7],
     + np.c_[ar1,ar2] #水平拼接，沿着行的方向，对列进行拼接
 
 
-#### 单值tensor可以采用`.item()` 得到 pyhon number的值
+## 单值tensor可以采用`.item()` 得到 pyhon number的值
 
 
 ```python
 value = t2[0,0].item()
 ```
 
-#### tnsor可以使用`.to()` 移动到任意设备上
+## tensor可以使用`.to()` 移动到任意设备上
 
 
 ```python
